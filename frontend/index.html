@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccountGuard AI - Enterprise Security Platform</title>
+    <meta name="description" content="Advanced AI-powered threat detection and fraud prevention platform with real-time analysis and enterprise-grade security.">
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.294.0/umd/lucide.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Circuit Background Canvas -->
+    <canvas id="circuit-background" class="circuit-background"></canvas>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2 class="loading-title">Initializing AccountGuard AI</h2>
+            <p class="loading-subtitle">Loading advanced security systems...</p>
+            <div class="loading-status">
+                <div class="status-dot"></div>
+                <span>Connecting to neural networks</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="header glass-header" data-aos="fade-down" data-aos-duration="800">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <div class="logo-container">
+                            <div class="logo-icon">
+                                <i data-lucide="shield"></i>
+                            </div>
+                            <div class="logo-glow"></div>
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="logo-title">AccountGuard AI</h1>
+                            <p class="logo-subtitle">Enterprise Security Platform</p>
+                        </div>
+                    </div>
+
+                    <div class="header-stats">
+                        <div class="stat-item">
+                            <i data-lucide="activity"></i>
+                            <span class="stat-label">Uptime:</span>
+                            <span class="stat-value" id="uptime">99.9%</span>
+                        </div>
+                        <div class="stat-item">
+                            <i data-lucide="zap"></i>
+                            <span class="stat-label">Threats Blocked:</span>
+                            <span class="stat-value" id="threats-blocked">1,247</span>
+                        </div>
+                    </div>
+
+                    <div class="status-badge">
+                        <div class="status-dot"></div>
+                        <span>AI Systems Online</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Page Header -->
+                <div class="page-header" data-aos="fade-up" data-aos-delay="200">
+                    <div class="page-title-section">
+                        <h1 class="page-title">Enterprise Security Dashboard</h1>
+                        <p class="page-subtitle">Real-time AI-powered threat detection and analysis</p>
+                        <div class="demo-badge">
+                            <div class="demo-dot"></div>
+                            <span>Demo Mode - Backend Offline</span>
+                        </div>
+                    </div>
+                    <div class="real-time-indicator">
+                        <div class="indicator-dot"></div>
+                        <span>Real-time Monitoring Active</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <div class="navigation-tabs glass" data-aos="fade-up" data-aos-delay="400">
+                    <div class="tabs-container">
+                        <button class="tab-button active" data-tab="dashboard">
+                            <i data-lucide="activity"></i>
+                            <span>Dashboard</span>
+                        </button>
+                        <button class="tab-button" data-tab="phishing">
+                            <i data-lucide="mail"></i>
+                            <span>Phishing Detection</span>
+                        </button>
+                        <button class="tab-button" data-tab="fraud">
+                            <i data-lucide="credit-card"></i>
+                            <span>Fraud Detection</span>
+                        </button>
+                    </div>
+                    <div class="tab-indicator"></div>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Dashboard Tab -->
+                    <div id="dashboard-tab" class="tab-pane active">
+                        <!-- Metrics Grid -->
+                        <div class="metrics-grid" data-aos="fade-up" data-aos-delay="100">
+                            <div class="metric-card glass" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="metric-content">
+                                    <div class="metric-info">
+                                        <p class="metric-label">Threats Blocked</p>
+                                        <p class="metric-value" id="dashboard-threats">1,247</p>
+                                    </div>
+                                    <div class="metric-icon danger">
+                                        <i data-lucide="shield"></i>
+                                    </div>
+                                </div>
+                                <div class="metric-trend">
+                                    <i data-lucide="trending-up"></i>
+                                    <span>+12% from yesterday</span>
+                                </div>
+                            </div>
+
+                            <div class="metric-card glass" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="metric-content">
+                                    <div class="metric-info">
+                                        <p class="metric-label">Fraud Prevented</p>
+                                        <p class="metric-value">89</p>
+                                    </div>
+                                    <div class="metric-icon warning">
+                                        <i data-lucide="alert-triangle"></i>
+                                    </div>
+                                </div>
+                                <div class="metric-trend">
+                                    <i data-lucide="check-circle"></i>
+                                    <span>All systems operational</span>
+                                </div>
+                            </div>
+
+                            <div class="metric-card glass" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="metric-content">
+                                    <div class="metric-info">
+                                        <p class="metric-label">System Uptime</p>
+                                        <p class="metric-value">99.9%</p>
+                                    </div>
+                                    <div class="metric-icon success">
+                                        <i data-lucide="activity"></i>
+                                    </div>
+                                </div>
+                                <div class="metric-trend">
+                                    <div class="status-dot"></div>
+                                    <span>Excellent performance</span>
+                                </div>
+                            </div>
+
+                            <div class="metric-card glass" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="metric-content">
+                                    <div class="metric-info">
+                                        <p class="metric-label">Active Connections</p>
+                                        <p class="metric-value" id="active-connections">2,847</p>
+                                    </div>
+                                    <div class="metric-icon primary">
+                                        <i data-lucide="zap"></i>
+                                    </div>
+                                </div>
+                                <div class="metric-trend">
+                                    <div class="badge">Real-time</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Charts Grid -->
+                        <div class="charts-grid">
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="200">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">
+                                        <i data-lucide="shield"></i>
+                                        Threat Detection Analytics
+                                        <div class="live-badge">
+                                            <div class="live-dot"></div>
+                                            Live
+                                        </div>
+                                    </h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="threat-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="300">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">
+                                        <i data-lucide="alert-triangle"></i>
+                                        Fraud Prevention Metrics
+                                    </h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="fraud-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="400">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">
+                                        <i data-lucide="activity"></i>
+                                        System Performance
+                                    </h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="performance-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="500">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">
+                                        <i data-lucide="zap"></i>
+                                        Network Activity
+                                    </h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="network-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Analytics -->
+                        <div class="analytics-grid">
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="600">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">Threat Distribution</h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="threat-distribution-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="700">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">Security Radar</h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="security-radar-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="800">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">Response Times</h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="response-times-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phishing Detection Tab -->
+                    <div id="phishing-tab" class="tab-pane">
+                        <div class="detection-grid">
+                            <div class="detection-card glass" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i data-lucide="brain" class="rotating-icon"></i>
+                                        AI Threat Analysis
+                                    </h3>
+                                    <div class="status-badge success">
+                                        <div class="status-dot"></div>
+                                        Real-time AI Processing
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="input-group">
+                                        <label for="email-content">Email Content Analysis</label>
+                                        <textarea id="email-content" placeholder="Paste email content for advanced AI analysis..." rows="5"></textarea>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="url-input">URL Security Scan</label>
+                                        <input type="url" id="url-input" placeholder="https://example.com">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="sms-content">SMS Pattern Recognition</label>
+                                        <textarea id="sms-content" placeholder="Enter SMS content for behavioral analysis..." rows="3"></textarea>
+                                    </div>
+                                    <button class="analyze-btn btn-glow" id="analyze-phishing">
+                                        <i data-lucide="rocket"></i>
+                                        Launch AI Analysis
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="detection-card glass" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i data-lucide="trending-up"></i>
+                                        Analysis Results
+                                    </h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="threat-indicator" id="phishing-threat-indicator">
+                                        <div class="threat-badge analyzing">
+                                            <i data-lucide="shield"></i>
+                                            Ready for Analysis
+                                        </div>
+                                    </div>
+                                    <div class="metrics-mini-grid">
+                                        <div class="mini-metric">
+                                            <i data-lucide="trending-up"></i>
+                                            <div class="mini-metric-value" id="phishing-confidence">0%</div>
+                                            <div class="mini-metric-label">AI Confidence</div>
+                                        </div>
+                                        <div class="mini-metric">
+                                            <i data-lucide="shield"></i>
+                                            <div class="mini-metric-value" id="phishing-risk">Low</div>
+                                            <div class="mini-metric-label">Risk Level</div>
+                                        </div>
+                                        <div class="mini-metric">
+                                            <i data-lucide="alert-circle"></i>
+                                            <div class="mini-metric-value" id="phishing-indicators">0</div>
+                                            <div class="mini-metric-label">Threat Indicators</div>
+                                        </div>
+                                    </div>
+                                    <div class="confidence-score">
+                                        <h4>Confidence Score</h4>
+                                        <div class="progress-container">
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" id="phishing-progress"></div>
+                                            </div>
+                                            <span class="progress-text" id="phishing-progress-text">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-section">
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="300">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">
+                                        <i data-lucide="activity"></i>
+                                        Live Threat Intelligence
+                                        <div class="live-badge">
+                                            <div class="live-dot"></div>
+                                            Live Data Feed
+                                        </div>
+                                    </h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="threat-intelligence-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="activity-card glass" data-aos="fade-up" data-aos-delay="400">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i data-lucide="activity"></i>
+                                        Recent Activity
+                                    </h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="activity-feed" id="phishing-activity-feed">
+                                        <!-- Activity items will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fraud Detection Tab -->
+                    <div id="fraud-tab" class="tab-pane">
+                        <div class="detection-grid">
+                            <div class="detection-card glass" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i data-lucide="calculator" class="rotating-icon"></i>
+                                        Transaction Analysis
+                                    </h3>
+                                    <div class="status-badge success">
+                                        <div class="status-dot"></div>
+                                        Real-time Processing
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="input-group">
+                                        <label for="transaction-amount">Transaction Amount ($)</label>
+                                        <input type="number" id="transaction-amount" placeholder="1000.00" step="0.01" min="0">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="merchant-category">Merchant Category</label>
+                                        <select id="merchant-category">
+                                            <option value="">Select Category</option>
+                                            <option value="grocery">Grocery & Food</option>
+                                            <option value="gas">Gas & Fuel</option>
+                                            <option value="restaurant">Restaurant & Dining</option>
+                                            <option value="online">Online Commerce</option>
+                                            <option value="atm">ATM & Banking</option>
+                                            <option value="other">Other Services</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="transaction-location">Transaction Location</label>
+                                        <input type="text" id="transaction-location" placeholder="New York, NY, USA">
+                                    </div>
+                                    <button class="analyze-btn btn-glow" id="analyze-fraud">
+                                        <i data-lucide="rocket"></i>
+                                        Analyze Transaction
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="detection-card glass" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i data-lucide="shield"></i>
+                                        Fraud Assessment
+                                    </h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="threat-indicator" id="fraud-threat-indicator">
+                                        <div class="threat-badge analyzing">
+                                            <i data-lucide="shield"></i>
+                                            Ready for Analysis
+                                        </div>
+                                    </div>
+                                    <div class="metrics-mini-grid">
+                                        <div class="mini-metric">
+                                            <div class="mini-metric-value" id="fraud-score">0.0</div>
+                                            <div class="mini-metric-label">Fraud Score</div>
+                                        </div>
+                                        <div class="mini-metric">
+                                            <div class="mini-metric-value" id="fraud-anomalies">0</div>
+                                            <div class="mini-metric-label">Anomalies</div>
+                                        </div>
+                                        <div class="mini-metric">
+                                            <div class="mini-metric-value" id="fraud-risk-level">Low</div>
+                                            <div class="mini-metric-label">Risk Level</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-section">
+                            <div class="chart-card glass" data-aos="fade-up" data-aos-delay="300">
+                                <div class="chart-header">
+                                    <h3 class="chart-title">
+                                        <i data-lucide="trending-up"></i>
+                                        Transaction Patterns
+                                    </h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="transaction-patterns-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="activity-card glass" data-aos="fade-up" data-aos-delay="400">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i data-lucide="activity"></i>
+                                        Transaction History
+                                    </h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="activity-feed" id="fraud-activity-feed">
+                                        <!-- Activity items will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="circuit-background.js"></script>
+    <script src="charts.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

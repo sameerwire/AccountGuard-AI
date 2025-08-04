@@ -1,0 +1,22 @@
+# Node-related
+node_modules/
+.next/
+
+# Python-related
+__pycache__/
+*.pyc
+backend/venv/
+
+# Environment and config
+.env
+*.log
+
+# Model files (use Git LFS or host elsewhere if large)
+*.joblib
+
+# Raw datasets (extremely large)
+backend/fraud_model_package/sample_submission.csv
+backend/fraud_model_package/test_identity.csv
+backend/fraud_model_package/test_transaction.csv
+backend/fraud_model_package/train_identity.csv
+backend/fraud_model_package/train_transaction.csv
