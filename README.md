@@ -43,7 +43,7 @@ No existing model from HuggingFace or other public repositories was trained on t
 
 * **Frontend**: Next.js, Tailwind CSS
 * **Backend**: FastAPI, Python
-* **ML Models**: Scikit-learn, HuggingFace Transformers
+* **ML Models**: Custom-trained IsolationForest (Scikit-learn), HuggingFace Transformers for phishing detection
 
 ---
 
